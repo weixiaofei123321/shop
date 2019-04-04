@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"
+
+</head>
+<body>
+{% extends "shopping/base.html" %}
+{% load static %}
+{% block 关键字 %} {{ 商品.名称 }}{% endblock 关键字 %}
+{% block 网页描述 %}{{ 商品.描述 }}{% endblock 网页描述 %}
+{% block 网页标题 %}{{ 商品.名称 }}立即购买-AI,自拍{% endblock 网页标题 %}
+{% block 主体 %}
+    <h2>{{ 商品.名称 }}</h2>
+    <p>{{ 商品.描述 }}</p>
+    <img src="{{ 商品.图片.url }}" alt="">
+    {% if 商品.库存 > 0 %}
+        <p>库存：{{ 商品.库存 }}</p>
+    {% else %}
+        <p>暂时缺货</p>
+    {% endif %}
+
+    <h4>{{ 商品.价格 }}元</h4>
+{% endblock %}
+</body>
+</html>

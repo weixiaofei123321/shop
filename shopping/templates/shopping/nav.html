@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav>
+   <a href="{% url 'shopping:总览页' %}">所有商品</a>
+   {% for 每个类别 in 所有类别 %}
+       <a href="{% url 'shopping:单类页' 每个类别.id %}">{{ 每个类别.名称 }}</a>
+   {% endfor %}
+
+
+   <a href="#">购物车</a>
+</nav>
+</body>
+</html>

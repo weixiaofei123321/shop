@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "shopping/base.html" %}
+{% load static %}
+{% block 主体 %}
+    {% for 每个类别,该类商品 in 类别与商品 %}
+        <h2>{{ 每个类别.名称 }}</h2>
+        <img src="{{ 每个类别.图片.url }}" alt="{{ 每个类别.名称 }}">
+        {% for 每件商品 in 该类商品 %}
+            <h3>
+                <a href="{% url 'shopping:详情页'  每个类别.id 每件商品.id %}">{{ 每件商品.名称 }}</a>
+            </h3>
+            <p>{{ 每件商品.描述 }}</p>
+            <br>
+            <img src="{{ 每件商品.图片.url }}" alt="{{ 每件商品.名称 }}">
+            <br>
+            <h4>{{ 每件商品.价格 }}元</h4>
+            <br>
+        {% endfor %}
+    {% endfor %}
+{% endblock 主体 %}
+</body>
+</html>
